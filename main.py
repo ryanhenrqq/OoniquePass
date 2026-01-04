@@ -91,4 +91,5 @@ generateButton.pack(pady=30)
 passOutput = tk.Label(root, text=generatedPassword, font=("System", 22, "bold"))
 passOutput.pack()
 
+# ideia posterior (dependendo do caminho q o codigo seguir): historico das senhas geradas em um arquivo encriptado
 root.mainloop()
