@@ -32,7 +32,7 @@ def handleGerar():
 
     a = 0
     while a < numbLength:
-        string = "abcdefghijklmnopqrstuvwxyz"
+        string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         print(random.choice(string))
         password.append(random.choice(string))
         a = a+1
