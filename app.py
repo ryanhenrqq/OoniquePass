@@ -43,6 +43,8 @@ class App:
 
         self.passOutput = tk.Label(self.root, text=self.generatedPassword, font=("System", 22, "bold"))
         self.passOutput.pack(pady=30)
+        self.generateButton = tk.Button(self.root, text="Copiar", command=lambda: self.copyToCtrlManagement())  # ideia posterior: timer de cooldown para cada geração de senha diferente
+        self.generateButton.pack()
     
 
     def handleGerar(self, type):
@@ -108,6 +110,17 @@ class App:
             print(random.choice(string)) # debug temporario, remover dps!
             password.append(random.choice(string))
             a = a+1
+
+
+    def copyToCtrlManagement(self):
+        t = self.passOutput["text"]
+        if t == self.generatedPassword:
+            print("Não copiado")
+            return
+        self.root.clipboard_clear()
+        self.root.clipboard_append(t)
+        self.root.update()
+
 
     # handlers especiais globais
     # ideia posterior: separa as strings abaixo em uma parte apenas para as strings do codigo, para treinar melhor a organização e codigo limpo
