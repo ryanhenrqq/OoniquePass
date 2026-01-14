@@ -18,7 +18,7 @@ class App:
         self.minAmount = 6 # minimo de caracteres da senha
         self.maxAmount = 30 # maximo de caracteres
         self.chAmount = f"Quantos caracteres deve conter a senha (entre {self.minAmount} a {self.maxAmount})?"
-        self.generatedPassword = "Clique em 'Gerar!' para gerar uma senha"
+        self.generatedPassword = "Clique no botão desejado para gerar uma senha"
 
         self.root = tk.Tk()
         self.root.title(windowTitle)
@@ -34,14 +34,18 @@ class App:
         self.characterAmount = tk.Entry(self.root)
         self.characterAmount.pack()
 
-        self.generateButton = tk.Button(self.root, text="Gerar!", command=self.handleGerar)  # ideia posterior: timer de cooldown para cada geração de senha diferente
-        self.generateButton.pack(pady=30)
+        self.generateButton = tk.Button(self.root, text="Apenas Letras", command=lambda: self.handleGerar("letter"))  # ideia posterior: timer de cooldown para cada geração de senha diferente
+        self.generateButton.pack()
+        self.generateButton = tk.Button(self.root, text="Apenas Numeros", command=lambda: self.handleGerar("number"))  # ideia posterior: timer de cooldown para cada geração de senha diferente
+        self.generateButton.pack()
+        self.generateButton = tk.Button(self.root, text="Mista", command=lambda: self.handleGerar("mist"))  # ideia posterior: timer de cooldown para cada geração de senha diferente
+        self.generateButton.pack()
 
         self.passOutput = tk.Label(self.root, text=self.generatedPassword, font=("System", 22, "bold"))
-        self.passOutput.pack()
+        self.passOutput.pack(pady=30)
     
 
-    def handleGerar(self):
+    def handleGerar(self, type):
         global password # array necessaria
         global numbLength # quantidade desejada pelo usuario
         global stripOut # str onde a senha vai ficar no final
@@ -57,16 +61,12 @@ class App:
         print(cha)
         password = []
         stripOut = ""
-
-        # separar o codigo abaixo em uma funçao separada
-        a = 0
-        while a < numbLength:
-            string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-            print(random.choice(string)) # debug temporario, remover dps!
-            password.append(random.choice(string))
-            a = a+1
-        # ^^^
-
+        if type == "letter":
+            self.letterPassword()
+        elif type == "number":
+            self.nbPassword()
+        elif type == "mist":
+            self.mistPassword()
         b = 0
         bx = ""
         while b < numbLength:
@@ -82,6 +82,32 @@ class App:
         stripOut = str(bx)
         self.passOutput["text"] = stripOut
     
+
+    def letterPassword(self):
+        a = 0
+        while a < numbLength:
+            string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            print(random.choice(string)) # debug temporario, remover dps!
+            password.append(random.choice(string))
+            a = a+1
+
+
+    def nbPassword(self):
+        a = 0
+        while a < numbLength:
+            string = "1234567890"
+            print(random.choice(string)) # debug temporario, remover dps!
+            password.append(random.choice(string))
+            a = a+1
+
+
+    def mistPassword(self):
+        a = 0
+        while a < numbLength:
+            string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+            print(random.choice(string)) # debug temporario, remover dps!
+            password.append(random.choice(string))
+            a = a+1
 
     # handlers especiais globais
     # ideia posterior: separa as strings abaixo em uma parte apenas para as strings do codigo, para treinar melhor a organização e codigo limpo
