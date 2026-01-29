@@ -1,21 +1,21 @@
 ## 🔑 OoniquePass
 
-- O **OoniquePass** é um projeto objetivo, onde a sua principal função é gerar uma senha unica e forte, para ser usada pra fins diversos.
+- **OoniquePass** it is a focused project whose main function is to generate a unique and strong password for use in various purposes.
 
-- Este é um codigo escrito em **Python**, usando de uma lib externa chamada **TkInter** para renderização grafica da janela.
+- This is a **Python** based code, using a external lib called **TkInter** for graphical window rendering.
 
 ---
 
-# 🛠️ Funcionalidades
+# 🛠️ Funcionalities
 
-- O OoniquePass pode gerar senhas usando de letras maiúsculas, minúsculas, numeros e simbolos.
+- OoniquePass can generate passwords using uppercase letters, lowercase letters, numbers, and symbols.
 
-- Tudo isso pode ficar a escolha do usuario: Quantidade de letras, se irá optar por uma senha apenas de letras ou apenas de numeros, e tambem podendo remover o elemento que achar mais viável.
+- All of this can be left to the user's choice: the number of letters, whether to opt for a password consisting only of letters or only numbers, and also being able to remove the element they think most convenient.
 
-# 🎯 Objetivo
+# 🎯 Goal
 
-- Tudo isso é projetado pra ser o mais facil e simples de interpretar dentro do app, e ser do tipo "user-friendly"
+- All of this is designed to be as easy and simple to interpret as possible within the app, and to be user-friendly.
 
-- O uso da linguagem Python possibilita se comunicar melhor com o computador (consequentemente, um desempenho superior) e simplifica o codigo-fonte junto
+- Using the Python language allows for better communication with the computer (consequently, faster responses) and simplifies the source code.
 
-- O OoniquePass é um projeto totalmente livre e de codigo aberto.
+- OoniquePass is a completely free and open-source project.
